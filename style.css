@@ -1,0 +1,329 @@
+/* ============================================
+   style.css — Ignatius Portfolio
+   ============================================
+
+  EDIT COLORS:
+   All colors live here at the top under :root { }
+   Change the values to update the whole site at once.
+
+  EDIT FONTS:
+   The font names are set in :root too (--mono and --serif).
+   If you want different fonts, change the Google Fonts link
+   in index.html AND update the names here.
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── COLOR & FONT VARIABLES ──────────────────
+   Edit these to restyle the whole site quickly */
+:root {
+  --bg:     #f5f4f0;   /* page background */
+  --fg:     #1a1a18;   /* main text color */
+  --muted:  #888880;   /* secondary/grey text */
+  --accent: #2a2a25;   /* currently unused, reserve for highlights */
+  --border: #ddddd5;   /* lines and card borders */
+  --mono:   'DM Mono', monospace;
+  --serif:  'DM Serif Display', serif;
+}
+
+html {
+  scroll-behavior: smooth; /* smooth scrolling when nav links are clicked */
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+
+/* ── NAVIGATION ──────────────────────────── */
+nav {
+  position: fixed;       /* sticks to top while scrolling */
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--fg); }
+
+
+/* ── HOME / HERO ─────────────────────────── */
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 48px 80px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-inner {
+  max-width: 760px;
+}
+
+/* Small label above your name */
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.1s forwards;
+}
+
+/* Your name — big heading */
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(52px, 8vw, 96px); /* scales with screen size */
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.2s forwards;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--muted); /* second line of name appears greyed out */
+}
+
+/* Short bio paragraph */
+.hero-bio {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 480px;
+  line-height: 1.85;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.35s forwards;
+}
+
+/* Tag chips row */
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 36px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.5s forwards;
+}
+
+.tag {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 2px;
+}
+
+
+/* ── SHARED SECTION STYLES ───────────────── */
+section {
+  padding: 100px 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* The small "PROJECTS" / "CONTACT" labels */
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-label::after {
+  content: '';
+  display: block;
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--border);
+}
+
+
+/* ── PROJECTS GRID ───────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px;
+  border: 1px solid var(--border);
+}
+
+.project-card {
+  padding: 36px 32px;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  transition: background 0.2s;
+  cursor: default;
+}
+
+/* Hover: card gets a slightly darker background */
+.project-card:hover { background: #efeeea; }
+
+.project-number {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.project-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--fg);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.project-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+/* Tech stack chips inside project card */
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stack-pill {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  background: var(--border);
+  color: var(--muted);
+  border-radius: 2px;
+}
+
+
+/* ── CONTACT ─────────────────────────────── */
+#contact .contact-inner {
+  max-width: 520px;
+}
+
+.contact-heading {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.contact-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 48px;
+  line-height: 1.85;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+/* Each contact row (Email / GitHub / LinkedIn) */
+.contact-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--fg);
+  transition: padding-left 0.2s; /* slides right on hover */
+}
+
+.contact-link:hover { padding-left: 8px; }
+
+.contact-link span:first-child {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contact-link span:last-child {
+  font-size: 13px;
+  color: var(--fg);
+}
+
+
+/* ── FOOTER ──────────────────────────────── */
+footer {
+  padding: 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer span {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+
+/* ── ANIMATIONS ──────────────────────────── */
+/* Used by the hero section elements on page load */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ── RESPONSIVE (mobile) ─────────────────── */
+/* Adjusts padding and spacing on smaller screens */
+@media (max-width: 640px) {
+  nav { padding: 16px 24px; }
+  #home, section { padding-left: 24px; padding-right: 24px; }
+  .nav-links { gap: 20px; }
+  footer { flex-direction: column; gap: 8px; text-align: center; }
+}

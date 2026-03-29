@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ============================================
+    index.html — Ignatius Portfolio
+
+    HOW THIS FILE WORKS:
+    This file is the STRUCTURE (content) of your site.
+    - Words, headings, links  → edit HERE in this file
+    - Colors, fonts, spacing  → edit style.css
+    - Scroll effects          → edit script.js
+
+    QUICK EDIT CHECKLIST:
+    [ ] Page title tag below
+    [ ] Nav logo text
+    [ ] Hero eyebrow (your course/role)
+    [ ] Hero name
+    [ ] Hero bio paragraph
+    [ ] Hero tags
+    [ ] Project cards (title, description, stack)
+    [ ] Contact links (email, GitHub, LinkedIn)
+    [ ] Footer text
+  ============================================ -->
+
+  <!-- Page tab title — shown in browser tab -->
+  <title>Ignatius — IT Portfolio</title>
+
+  <!-- Google Fonts — loaded here so style.css can use them.
+       To change fonts: pick one at fonts.google.com, swap the URL here
+       and update the font names in :root inside style.css -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Your stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ──────────────────────────
+    The href="#home" values match the id="" on each
+    section below. Don't change those unless you also
+    change the matching id on the section. -->
+  <nav>
+    <a class="nav-logo" href="#home">Ignatius</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ── HOME / HERO ─────────────────────────
+    This is the first thing visitors see. -->
+  <section id="home">
+    <div class="hero-inner">
+
+      <!-- Small label above your name — your course, year, or tagline -->
+      <p class="hero-eyebrow">Information Technology Student</p>
+
+      <!-- Your name. <em> makes text italic and greyed out.
+           Remove <br/><em>Marcus Lee</em> if you want just one line. -->
+      <h1 class="hero-name">
+        Ignatius<br/>
+        <em>Marcus Lee</em>
+      </h1>
+
+      <!-- 2–3 sentence bio about yourself -->
+      <p class="hero-bio">
+        Hi, I'm Ignatius — an IT student passionate about building things with code.
+        I enjoy working on projects that solve real problems and keep learning along the way.
+      </p>
+
+      <!-- Tags / interests. Add or remove <span class="tag"> freely. -->
+      <div class="hero-tags">
+        <span class="tag">Information Technology</span>
+        <span class="tag">Web Development</span>
+        <span class="tag">Tech Hardware</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── PROJECTS ────────────────────────────
+    Each project is one <div class="project-card"> block.
+
+    TO ADD a project:
+      Copy one full project-card block and paste it
+      before the closing </div> of projects-grid.
+      Update the number, title, description, and pills.
+
+    TO REMOVE a project:
+      Delete the whole project-card block (from
+      <div class="project-card"> to its closing </div>). -->
+  <section id="projects">
+    <p class="section-label">Projects</p>
+    <div class="projects-grid">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card">
+        <p class="project-number">01</p>
+        <h2 class="project-title">Project Title </h2>
+        <p class="project-desc">
+          ............
+        </p>
+        <!-- Stack pills — add/remove <span class="stack-pill"> as needed -->
+        <div class="project-stack">
+          <span class="stack-pill">Python</span>
+          <span class="stack-pill">Flask</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card">
+        <p class="project-number">02</p>
+        <h2 class="project-title">Project Title </h2>
+        <p class="project-desc">
+         ..........
+        </p>
+        <div class="project-stack">
+          <span class="stack-pill">JavaScript</span>
+          <span class="stack-pill">HTML/CSS</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card">
+        <p class="project-number">03</p>
+        <h2 class="project-title">Project Title </h2>
+        <p class="project-desc">
+          ......
+        </p>
+        <div class="project-stack">
+          <span class="stack-pill">React</span>
+          <span class="stack-pill">Node.js</span>
+        </div>
+      </div>
+
+      <!-- Paste additional project cards here -->
+
+    </div>
+  </section>
+
+
+  <!-- ── CONTACT ──────────────────────────────
+    Edit href and the display text for each row.
+
+    Email  → href="mailto:YOUR_EMAIL"
+    GitHub → href="https://github.com/YOUR_USERNAME"
+    LinkedIn → href="https://linkedin.com/in/YOUR_USERNAME"
+
+    To add a row: copy a full <a class="contact-link"> block. -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <div class="contact-inner">
+      <h2 class="contact-heading">Let's get in touch.</h2>
+      <p class="contact-sub">
+        Whether it's a project, an opportunity, or just a hello — feel free to reach out.
+      </p>
+      <div class="contact-links">
+
+        <a class="contact-link" href="ignatiusmarcusleeyiyang@gmail.com">
+          <span>Email</span>
+          <span>ignatiusmarcusleeyiyang@email.com</span>
+        </a>
+
+        <a class="contact-link" href="https://github.com/ignatius5k" target="_blank">
+          <span>GitHub</span>
+          <span>github.com/ignatius5k</span>
+        </a>
+
+        <a class="contact-link" href="https://www.linkedin.com/in/ignatius-marcus-lee-a15492361/" target="_blank">
+          <span>LinkedIn</span>
+          <span>linkedin.com/in/ignatiusmarcuslee</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ───────────────────────────────
+    Update with your full name and course. -->
+  <footer>
+    <span>Ignatius Marcus Lee Yi Yang</span>
+    <span>Information Technology</span>
+  </footer>
+
+
+  <!-- JavaScript — keep this at the very bottom -->
+  <script src="script.js"></script>
+
+</body>
+</html>
