@@ -2,11 +2,11 @@
    style.css — Ignatius Portfolio
    ============================================
 
-  EDIT COLORS:
+   HOW TO EDIT COLORS:
    All colors live here at the top under :root { }
    Change the values to update the whole site at once.
 
-  EDIT FONTS:
+   HOW TO EDIT FONTS:
    The font names are set in :root too (--mono and --serif).
    If you want different fonts, change the Google Fonts link
    in index.html AND update the names here.
@@ -311,10 +311,199 @@ footer span {
 }
 
 
+/* ── CARD CTA ─────────────────────────────── */
+/* "Read more →" label shown at the bottom of each project card */
+.card-cta {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.project-card:hover .card-cta { color: var(--fg); }
+.project-card { cursor: pointer; }
+
+
+/* ── MODAL OVERLAY ───────────────────────────
+   The dark backdrop behind the modal panel.
+   Hidden by default; JS adds .is-open to show it. */
+.modal-overlay {
+  display: none;                  /* hidden until opened */
+  position: fixed;
+  inset: 0;                       /* covers the full screen */
+  z-index: 200;
+  background: rgba(26, 26, 24, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow-y: auto;
+}
+
+/* JS adds this class to show the overlay */
+.modal-overlay.is-open {
+  display: flex;
+  animation: fadeIn 0.2s ease forwards;
+}
+
+/* ── MODAL PANEL ─────────────────────────────
+   The white box that slides up */
+.modal {
+  position: relative;
+  background: var(--bg);
+  width: 100%;
+  max-width: 680px;
+  padding: 48px;
+  border: 1px solid var(--border);
+  animation: slideUp 0.25s ease forwards;
+  margin: auto; /* vertically centers short modals */
+}
+
+/* ── CLOSE BUTTON ────────────────────────────
+   The ✕ in the top-right corner */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.modal-close:hover { color: var(--fg); }
+
+/* ── MODAL HEADER ────────────────────────── */
+.modal-header {
+  margin-bottom: 0;
+}
+
+.modal-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1.1;
+  color: var(--fg);
+  margin: 12px 0 14px;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+
+/* Tech stack row inside modal header */
+.modal-header .project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+/* ── GITHUB LINK BUTTON ──────────────────── */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg);
+  text-decoration: none;
+  padding: 9px 18px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.github-link:hover {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+.github-link:hover svg { stroke: var(--bg); }
+
+/* ── MODAL DIVIDER ───────────────────────── */
+.modal-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 40px 0;
+}
+
+/* ── MODAL BODY (writeup content) ────────── */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Section label e.g. "OVERVIEW", "KEY FEATURES" */
+.writeup-heading {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* Body paragraphs */
+.writeup-section p {
+  font-size: 14px;
+  color: var(--fg);
+  line-height: 1.9;
+  margin-bottom: 14px;
+  max-width: 600px;
+}
+
+.writeup-section p:last-child { margin-bottom: 0; }
+
+/* Feature list */
+.writeup-list {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.writeup-list li {
+  font-size: 14px;
+  color: var(--fg);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.6;
+}
+
+.writeup-list li::before {
+  content: '— ';
+  color: var(--muted);
+}
+
+
 /* ── ANIMATIONS ──────────────────────────── */
 /* Used by the hero section elements on page load */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 

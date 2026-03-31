@@ -7,41 +7,29 @@
   <!-- ============================================
     index.html — Ignatius Portfolio
 
-    HOW THIS FILE WORKS:
-    This file is the STRUCTURE (content) of your site.
-    - Words, headings, links  → edit HERE in this file
-    - Colors, fonts, spacing  → edit style.css
-    - Scroll effects          → edit script.js
+    HOW MODALS WORK:
+    Each project card has a data-project="1" attribute.
+    Clicking it opens the matching modal with id="modal-1".
 
-    QUICK EDIT CHECKLIST:
-    [ ] Page title tag below
-    [ ] Nav logo text
-    [ ] Hero eyebrow (your course/role)
-    [ ] Hero name
-    [ ] Hero bio paragraph
-    [ ] Hero tags
-    [ ] Project cards (title, description, stack)
-    [ ] Contact links (email, GitHub, LinkedIn)
-    [ ] Footer text
+    TO ADD A PROJECT:
+      1. Copy a project-card block in the PROJECTS section
+      2. Change data-project="N" to the next number
+      3. Copy a modal block at the bottom of this file
+      4. Change id="modal-N" to match
+      5. Fill in the modal content (marked with ✏️)
+
+    TO EDIT A PROJECT'S WRITEUP:
+      Scroll to the bottom — all modals are there.
+      Find the right modal by its id and edit the content.
   ============================================ -->
 
-  <!-- Page tab title — shown in browser tab -->
   <title>Ignatius — IT Portfolio</title>
-
-  <!-- Google Fonts — loaded here so style.css can use them.
-       To change fonts: pick one at fonts.google.com, swap the URL here
-       and update the font names in :root inside style.css -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
-
-  <!-- Your stylesheet -->
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- ── NAVIGATION ──────────────────────────
-    The href="#home" values match the id="" on each
-    section below. Don't change those unless you also
-    change the matching id on the section. -->
+  <!-- ── NAVIGATION ───────────────────────── -->
   <nav>
     <a class="nav-logo" href="#home">Ignatius</a>
     <ul class="nav-links">
@@ -52,91 +40,84 @@
   </nav>
 
 
-  <!-- ── HOME / HERO ─────────────────────────
-    This is the first thing visitors see. -->
+  <!-- ── HOME / HERO ───────────────────────── -->
   <section id="home">
     <div class="hero-inner">
-
-      <!-- Small label above your name — your course, year, or tagline -->
       <p class="hero-eyebrow">Information Technology Student</p>
-
-      <!-- Your name. <em> makes text italic and greyed out.
-           Remove <br/><em>Marcus Lee</em> if you want just one line. -->
       <h1 class="hero-name">
         Ignatius<br/>
         <em>Marcus Lee</em>
       </h1>
-
-      <!-- 2–3 sentence bio about yourself -->
       <p class="hero-bio">
         Hi, I'm Ignatius — an IT student passionate about building things with code.
         I enjoy working on projects that solve real problems and keep learning along the way.
       </p>
-
-      <!-- Tags / interests. Add or remove <span class="tag"> freely. -->
       <div class="hero-tags">
         <span class="tag">Information Technology</span>
         <span class="tag">Web Development</span>
-        <span class="tag">Tech Hardware</span>
+        <span class="tag">Problem Solver</span>
       </div>
-
     </div>
   </section>
 
 
-  <!-- ── PROJECTS ────────────────────────────
-    Each project is one <div class="project-card"> block.
+  <!-- ── PROJECTS ─────────────────────────────
+    data-project="N" links the card to modal id="modal-N".
+    That's the only connection — keep the numbers matching.
 
-    TO ADD a project:
-      Copy one full project-card block and paste it
-      before the closing </div> of projects-grid.
-      Update the number, title, description, and pills.
+    TO ADD A PROJECT:
+      Copy a project-card block, set data-project to the next number,
+      then add a matching modal at the bottom of this file.
 
-    TO REMOVE a project:
-      Delete the whole project-card block (from
-      <div class="project-card"> to its closing </div>). -->
+    TO REMOVE A PROJECT:
+      Delete the project-card block AND its matching modal. -->
   <section id="projects">
     <p class="section-label">Projects</p>
     <div class="projects-grid">
 
-      <!-- PROJECT 1 -->
-      <div class="project-card">
+      <!-- PROJECT 1 — data-project must match modal id below -->
+      <div class="project-card" data-project="1">
         <p class="project-number">01</p>
-        <h2 class="project-title">Project Title </h2>
+        <h2 class="project-title">Project Title Here</h2>
         <p class="project-desc">
-          ............
+          A short description of what this project does and what problem it solves.
+          Keep it to 2–3 sentences.
         </p>
-        <!-- Stack pills — add/remove <span class="stack-pill"> as needed -->
         <div class="project-stack">
           <span class="stack-pill">Python</span>
           <span class="stack-pill">Flask</span>
         </div>
+        <span class="card-cta">Read more →</span>
       </div>
 
       <!-- PROJECT 2 -->
-      <div class="project-card">
+      <div class="project-card" data-project="2">
         <p class="project-number">02</p>
-        <h2 class="project-title">Project Title </h2>
+        <h2 class="project-title">Project Title Here</h2>
         <p class="project-desc">
-         ..........
+          A short description of what this project does and what problem it solves.
+          Keep it to 2–3 sentences.
         </p>
         <div class="project-stack">
           <span class="stack-pill">JavaScript</span>
           <span class="stack-pill">HTML/CSS</span>
         </div>
+        <span class="card-cta">Read more →</span>
       </div>
 
       <!-- PROJECT 3 -->
-      <div class="project-card">
+      <div class="project-card" data-project="3">
         <p class="project-number">03</p>
-        <h2 class="project-title">Project Title </h2>
+        <h2 class="project-title">Project Title Here</h2>
         <p class="project-desc">
-          ......
+          A short description of what this project does and what problem it solves.
+          Keep it to 2–3 sentences.
         </p>
         <div class="project-stack">
           <span class="stack-pill">React</span>
           <span class="stack-pill">Node.js</span>
         </div>
+        <span class="card-cta">Read more →</span>
       </div>
 
       <!-- Paste additional project cards here -->
@@ -145,14 +126,7 @@
   </section>
 
 
-  <!-- ── CONTACT ──────────────────────────────
-    Edit href and the display text for each row.
-
-    Email  → href="mailto:YOUR_EMAIL"
-    GitHub → href="https://github.com/YOUR_USERNAME"
-    LinkedIn → href="https://linkedin.com/in/YOUR_USERNAME"
-
-    To add a row: copy a full <a class="contact-link"> block. -->
+  <!-- ── CONTACT ──────────────────────────── -->
   <section id="contact">
     <p class="section-label">Contact</p>
     <div class="contact-inner">
@@ -162,19 +136,19 @@
       </p>
       <div class="contact-links">
 
-        <a class="contact-link" href="ignatiusmarcusleeyiyang@gmail.com">
+        <a class="contact-link" href="mailto:your@email.com">
           <span>Email</span>
-          <span>ignatiusmarcusleeyiyang@gmail.com</span>
+          <span>your@email.com</span>
         </a>
 
-        <a class="contact-link" href="https://github.com/ignatius5k" target="_blank">
+        <a class="contact-link" href="https://github.com/yourusername" target="_blank">
           <span>GitHub</span>
-          <span>github.com/ignatius5k</span>
+          <span>github.com/yourusername</span>
         </a>
 
-        <a class="contact-link" href="https://www.linkedin.com/in/ignatius-marcus-lee-a15492361/" target="_blank">
+        <a class="contact-link" href="https://linkedin.com/in/yourusername" target="_blank">
           <span>LinkedIn</span>
-          <span>linkedin.com/in/ignatiusmarcuslee</span>
+          <span>linkedin.com/in/yourusername</span>
         </a>
 
       </div>
@@ -182,16 +156,186 @@
   </section>
 
 
-  <!-- ── FOOTER ───────────────────────────────
-    Update with your full name and course. -->
+  <!-- ── FOOTER ───────────────────────────── -->
   <footer>
     <span>Ignatius Marcus Lee Yi Yang</span>
     <span>Information Technology</span>
   </footer>
 
 
-  <!-- JavaScript — keep this at the very bottom -->
-  <script src="script.js"></script>
+  <!-- ================================================================
+    MODALS — PROJECT WRITEUPS
+    Each modal matches a project card above via the id.
+    modal-1 → data-project="1", modal-2 → data-project="2", etc.
 
+    TO EDIT A WRITEUP: Find the modal by id and change the text.
+    TO ADD A MODAL: Copy a full modal block, change the id to the
+    next number, and fill in the ✏️ sections.
+  ================================================================ -->
+
+  <!-- MODAL 1 ──────────────────────────────── -->
+  <div class="modal-overlay" id="modal-1">
+    <div class="modal">
+
+      <button class="modal-close" aria-label="Close">✕</button>
+
+      <!-- ✏️ Header info -->
+      <div class="modal-header">
+        <p class="project-number">01</p>
+        <h2 class="modal-title">Project Title Here</h2>
+        <p class="modal-subtitle">A one-sentence summary of what this project does.</p>
+
+        <!-- ✏️ Tech stack pills -->
+        <div class="project-stack">
+          <span class="stack-pill">Python</span>
+          <span class="stack-pill">Flask</span>
+          <span class="stack-pill">SQLite</span>
+        </div>
+
+        <!-- ✏️ Replace with your real GitHub link -->
+        <a class="github-link" href="https://github.com/yourusername/repo-name" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <!-- ✏️ Writeup body — edit the text inside the <p> and <li> tags -->
+      <div class="modal-body">
+
+        <div class="writeup-section">
+          <h3 class="writeup-heading">Overview</h3>
+          <p>Write a paragraph here explaining what your project is and why you built it. What problem does it solve? Who is it for?</p>
+          <p>You can add a second paragraph here for more background or context.</p>
+        </div>
+
+        <div class="writeup-section">
+          <h3 class="writeup-heading">Key Features</h3>
+          <ul class="writeup-list">
+            <li>Feature one — describe what it does</li>
+            <li>Feature two — describe what it does</li>
+            <li>Feature three — describe what it does</li>
+          </ul>
+        </div>
+
+        <div class="writeup-section">
+          <h3 class="writeup-heading">Challenges & Learnings</h3>
+          <p>Write about what was difficult and how you worked through it. What did you learn technically or otherwise?</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL 2 ──────────────────────────────── -->
+  <div class="modal-overlay" id="modal-2">
+    <div class="modal">
+
+      <button class="modal-close" aria-label="Close">✕</button>
+
+      <div class="modal-header">
+        <p class="project-number">02</p>
+        <h2 class="modal-title">Project Title Here</h2>
+        <p class="modal-subtitle">A one-sentence summary of what this project does.</p>
+
+        <div class="project-stack">
+          <span class="stack-pill">JavaScript</span>
+          <span class="stack-pill">HTML/CSS</span>
+        </div>
+
+        <a class="github-link" href="https://github.com/yourusername/repo-name" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-body">
+
+        <div class="writeup-section">
+          <h3 class="writeup-heading">Overview</h3>
+          <p>Write a paragraph here explaining what your project is and why you built it.</p>
+        </div>
+
+        <div class="writeup-section">
+          <h3 class="writeup-heading">Key Features</h3>
+          <ul class="writeup-list">
+            <li>Feature one — describe what it does</li>
+            <li>Feature two — describe what it does</li>
+            <li>Feature three — describe what it does</li>
+          </ul>
+        </div>
+
+        <div class="writeup-section">
+          <h3 class="writeup-heading">Challenges & Learnings</h3>
+          <p>Write about what was difficult and how you worked through it.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL 3 ──────────────────────────────── -->
+  <div class="modal-overlay" id="modal-3">
+    <div class="modal">
+
+      <button class="modal-close" aria-label="Close">✕</button>
+
+      <div class="modal-header">
+        <p class="project-number">03</p>
+        <h2 class="modal-title">Project Title Here</h2>
+        <p class="modal-subtitle">A one-sentence summary of what this project does.</p>
+
+        <div class="project-stack">
+          <span class="stack-pill">React</span>
+          <span class="stack-pill">Node.js</span>
+        </div>
+
+        <a class="github-link" href="https://github.com/yourusername/repo-name" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-body">
+
+        <div class="writeup-section">
+          <h3 class="writeup-heading">Overview</h3>
+          <p>Write a paragraph here explaining what your project is and why you built it.</p>
+        </div>
+
+        <div class="writeup-section">
+          <h3 class="writeup-heading">Key Features</h3>
+          <ul class="writeup-list">
+            <li>Feature one — describe what it does</li>
+            <li>Feature two — describe what it does</li>
+            <li>Feature three — describe what it does</li>
+          </ul>
+        </div>
+
+        <div class="writeup-section">
+          <h3 class="writeup-heading">Challenges & Learnings</h3>
+          <p>Write about what was difficult and how you worked through it.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Paste additional modals here for more projects -->
+
+  <script src="script.js"></script>
 </body>
 </html>

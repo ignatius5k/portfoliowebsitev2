@@ -1,46 +1,91 @@
 /* ============================================
    script.js — Ignatius Portfolio
-   ============================================
 
-  Content:
-   1. Active nav link highlighting as you scroll
-   2. Fade-in animation for project cards on scroll
+   What's in here:
+   1. Modal open / close for project writeups
+   2. Active nav link highlighting on scroll
+   3. Fade-in animation for project cards on scroll
+
+   You generally won't need to edit this file.
    ============================================ */
 
 
-/* ── 1. ACTIVE NAV LINK ON SCROLL ───────────
-   Adds an "active" class to the nav link that
-   matches the section currently in view.
-   You can style .active in style.css if you want
-   e.g. a different color for the current section. */
+/* ── 1. MODAL OPEN / CLOSE ───────────────────
+
+   HOW IT WORKS:
+   - Each project card has data-project="N"
+   - Clicking the card opens the modal with id="modal-N"
+   - The modal closes when you:
+       • click the ✕ button
+       • click the dark backdrop outside the modal
+       • press the Escape key                          */
+
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.getAttribute('data-project');
+    const modal = document.getElementById(`modal-${id}`);
+    if (!modal) return;
+
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // prevent page scroll while modal is open
+  });
+});
+
+// Close when clicking the ✕ button
+document.querySelectorAll('.modal-close').forEach(btn => {
+  btn.addEventListener('click', () => closeModal(btn.closest('.modal-overlay')));
+});
+
+// Close when clicking the dark backdrop (outside the modal box)
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal(overlay); // only if clicking the overlay itself, not the modal
+  });
+});
+
+// Close with the Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const open = document.querySelector('.modal-overlay.is-open');
+    if (open) closeModal(open);
+  }
+});
+
+function closeModal(overlay) {
+  overlay.classList.remove('is-open');
+  document.body.style.overflow = ''; // restore page scroll
+}
+
+
+/* ── 2. ACTIVE NAV LINK ON SCROLL ───────────
+   Adds .active class to the nav link for the
+   section currently in view.
+   Style .nav-links a.active in style.css if you
+   want to highlight the current section. */
 
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 
 window.addEventListener('scroll', () => {
-  let currentSection = '';
+  let current = '';
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 80; // offset for fixed nav height
-    if (window.scrollY >= sectionTop) {
-      currentSection = section.getAttribute('id');
+    if (window.scrollY >= section.offsetTop - 80) {
+      current = section.getAttribute('id');
     }
   });
 
   navLinks.forEach(link => {
     link.classList.remove('active');
-    if (link.getAttribute('href') === `#${currentSection}`) {
+    if (link.getAttribute('href') === `#${current}`) {
       link.classList.add('active');
     }
   });
 });
 
 
-/* ── 2. FADE-IN PROJECT CARDS ON SCROLL ─────
-   Each project card fades in when it enters
-   the viewport, instead of all at once.
-   Uses the IntersectionObserver API — no extra
-   libraries needed. */
+/* ── 3. FADE-IN PROJECT CARDS ON SCROLL ─────
+   Cards animate in when they enter the viewport. */
 
 const cards = document.querySelectorAll('.project-card');
 
@@ -49,11 +94,11 @@ const observer = new IntersectionObserver(
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // only animate once
+        observer.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.1 } // trigger when 10% of card is visible
+  { threshold: 0.1 }
 );
 
 cards.forEach(card => {
@@ -63,9 +108,6 @@ cards.forEach(card => {
   observer.observe(card);
 });
 
-// When .visible is added, animate the card in
-document.addEventListener('DOMContentLoaded', () => {
-  const style = document.createElement('style');
-  style.textContent = `.project-card.visible { opacity: 1 !important; transform: translateY(0) !important; }`;
-  document.head.appendChild(style);
-});
+const visibleStyle = document.createElement('style');
+visibleStyle.textContent = `.project-card.visible { opacity: 1 !important; transform: translateY(0) !important; }`;
+document.head.appendChild(visibleStyle);
