@@ -336,21 +336,24 @@
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Overview</h3>
-          <p>Write a paragraph here explaining what your project is and why you built it.</p>
+          <p>A command-line task manager built in Python that helps users stay on top of their daily workload. Tasks are stored with descriptions, deadlines, and statuses — and the program lets you add, view, complete, delete, filter, and update them all from a simple text interface.</p>
         </div>
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Key Features</h3>
           <ul class="writeup-list">
-            <li>Feature one — describe what it does</li>
-            <li>Feature two — describe what it does</li>
-            <li>Feature three — describe what it does</li>
+            <li>Add tasks with optional deadlines — accepts a description and an optional DD-MM-YYYY deadline, with validation to catch bad date formats</li>
+            <li>View all tasks at a glance — displays each task numbered with a completion checkbox, current status, and due date if set</li>
+            <li>Mark tasks as done — records the exact completion timestamp and updates the task's status automatically</li>
+            <li>Delete tasks — removes a task by its index with bounds-checking to prevent invalid deletions</li>
+            <li>Filter by status — view only completed, outstanding, overdue, or not-yet-overdue tasks using today's date as the reference point</li>
+            <li>pdate task status manually — set any custom status string on a task beyond the default in progress / completed states</li>
           </ul>
         </div>
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Challenges & Learnings</h3>
-          <p>Write about what was difficult and how you worked through it.</p>
+          <p>Building this from scratch meant picking up new Python concepts along the way. One example was the enumerate() function, used to number tasks when displaying them — something unfamiliar at the start. Working through those gaps independently made completing the project a meaningful learning experience.</p>
         </div>
 
       </div>
@@ -389,21 +392,22 @@
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Overview</h3>
-          <p>Write a paragraph here explaining what your project is and why you built it.</p>
+          <p>My personal portfolio website which was built with HTML, CSS, and JavaScript to showcase the projects I've built as an IT student. It includes a hero section, a project grid with modal writeups, a showcase for non-coding work, and a contact section. This website was built and designed to present my work in a clear and professional manner.</p>
         </div>
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Key Features</h3>
           <ul class="writeup-list">
-            <li>Feature one — describe what it does</li>
-            <li>Feature two — describe what it does</li>
-            <li>Feature three — describe what it does</li>
+            <li>Project cards with modal writeups — each project card links to a full modal via a data-project attribute, showing an overview, key features, and challenges</li>
+            <li>Showcase section — highlights personal passion projects, linking out to external platforms such as Instagram</li>
+            <li>Contact section with live links — direct links to email, GitHub, and LinkedIn so visitors can reach out or explore more work</li>
+            <li>Modular project structure — new projects and showcase items can be added by duplicating existing card and modal templates, keeping the site easy to maintain and expand</li>
           </ul>
         </div>
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Challenges & Learnings</h3>
-          <p>Write about what was difficult and how you worked through it.</p>
+          <p>This wasn't my first time building a multi-section website — an earlier draft of this portfolio came first. Since then, greater exposure to front end development brought new concepts and techniques that I applied here. The challenge from was putting those ideas into practice in a way that genuinely reflected what I had learned from front-end development, rather than just repeating old habits. In the end this project was extremely enjoyable for me as I got to see something properly done come to fruition</p>
         </div>
 
       </div>
@@ -441,21 +445,22 @@
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Overview</h3>
-          <p>Write a paragraph here explaining what your project is and why you built it.</p>
+          <p>A command-line SGD currency converter built in Python. It converts Singapore Dollars into six currencies using a built-in exchange rate dataset, displays conversion tables for common SGD amounts and lets users convert any specific amount on demand all through a simple numbered menu.</p>
         </div>
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Key Features</h3>
           <ul class="writeup-list">
-            <li>Feature one — describe what it does</li>
-            <li>Feature two — describe what it does</li>
-            <li>Feature three — describe what it does</li>
+            <li>Individual currency table — prints a formatted SGD-to-currency table across 20 preset amounts (1, 2, 3 … up to 1,000) for a chosen currency</li>
+            <li>All currency tables at once — loops through all six supported currencies (USD, THB, CNY, JPY, GBP, MYR) and prints a table for each</li>
+            <li>Convert a specific amount — prompts the user for any SGD value and target currency, then outputs the exact converted result with input validation</li>
+            <li>Timestamped session header — displays the current date and time on launch so the user knows when the exchange rates were last set</li>
           </ul>
         </div>
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Challenges & Learnings</h3>
-          <p>Write about what was difficult and how you worked through it.</p>
+          <p>Building this from scratch meant figuring out how to structure a menu-driven program, handle bad user input , and format output which made completing this project extremely satisfying as it taught me many new key concepts in programming and taught me how to work with numbers on code.</p>
         </div>
 
       </div>
@@ -493,21 +498,22 @@
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Overview</h3>
-          <p>Write a paragraph here explaining what your project is and why you built it.</p>
+          <p>A command-line luxury watch store built in Python. Users are able to pick from three brands and learn a bit of their history, browse available models with prices, and add multiple watches to a cart that tallies a running total before checkout.</p>
         </div>
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Key Features</h3>
           <ul class="writeup-list">
-            <li>Feature one — describe what it does</li>
-            <li>Feature two — describe what it does</li>
-            <li>Feature three — describe what it does</li>
+            <li>Brand selection with validation — user picks a brand by number; invalid inputs are caught and a clear error message is shown</li>
+            <li>Brand history display — shows a brief founding history for the selected brand pulled from a dictionary dataset</li>
+            <li>Model browser with prices — lists available models and their prices for the chosen brand before purchase</li>
+            <li>Multi-item cart with total — users can add multiple models in a loop; typing done ends the session and prints the full order summary with a total</li>
           </ul>
         </div>
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Challenges & Learnings</h3>
-          <p>Write about what was difficult and how you worked through it.</p>
+          <p>This project was built without much prior knowledge on programming and had thought me many key concepts. One of which is nested dictionaries which I have had to use many times over school projects.</p>
         </div>
 
       </div>
@@ -546,21 +552,22 @@
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Overview</h3>
-          <p>Write a paragraph here explaining what your project is and why you built it.</p>
+          <p>A command-line shopping cart built in Python, and the direct foundation for the watch website project. It introduced the core e-commerce logic product listings, a persistent cart, and a full checkout flow.</p>
         </div>
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Key Features</h3>
           <ul class="writeup-list">
-            <li>Feature one — describe what it does</li>
-            <li>Feature two — describe what it does</li>
-            <li>Feature three — describe what it does</li>
+            <li>Product catalogue & cart — browse four luxury items, add multiple products by ID with custom quantities, and view a live cart with a running subtotal</li>
+            <li>Flexible cart removal — remove a specific quantity of an item or wipe it entirely with all, with checks to prevent removing more than what's in the cart</li>
+            <li>Multi-method checkout — supports Credit/Debit Card, PayNow, and Cash on Delivery, each with its own input flow and validation</li>
+            <li>Card masking & input validation — card numbers are masked to show only the last four digits; phone and card lengths are validated before the order is confirmed</li>
           </ul>
         </div>
 
         <div class="writeup-section">
           <h3 class="writeup-heading">Challenges & Learnings</h3>
-          <p>Write about what was difficult and how you worked through it.</p>
+          <p>The biggest challenge was building the checkout flow from scratch. Handling three different payment paths, validating card and phone number lengths, and writing the card masking logic using .join() and string slicing. Structuring the program around functions and a shared cart dictionary also taught me how data persists across different parts of the program.</p>
         </div>
 
       </div>
