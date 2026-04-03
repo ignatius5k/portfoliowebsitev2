@@ -575,8 +575,26 @@ footer span {
 
 /* ── RESPONSIVE (mobile) ─────────────────── */
 @media (max-width: 640px) {
-  nav { padding: 16px 24px; }
+  nav {
+    padding: 12px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav-logo {
+    font-size: 14px;
+  }
+
+  .nav-links {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
   #home, section { padding-left: 24px; padding-right: 24px; }
-  .nav-links { gap: 20px; }
   footer { flex-direction: column; gap: 8px; text-align: center; }
 }
