@@ -31,7 +31,7 @@
 }
 
 html {
-  scroll-behavior: smooth; /* smooth scrolling when nav links are clicked */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -46,7 +46,7 @@ body {
 
 /* ── NAVIGATION ──────────────────────────── */
 nav {
-  position: fixed;       /* sticks to top while scrolling */
+  position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
   display: flex;
@@ -98,7 +98,6 @@ nav {
   max-width: 760px;
 }
 
-/* Small label above your name */
 .hero-eyebrow {
   font-size: 11px;
   letter-spacing: 0.14em;
@@ -109,10 +108,9 @@ nav {
   animation: fadeUp 0.6s 0.1s forwards;
 }
 
-/* Your name — big heading */
 .hero-name {
   font-family: var(--serif);
-  font-size: clamp(52px, 8vw, 96px); /* scales with screen size */
+  font-size: clamp(52px, 8vw, 96px);
   line-height: 1.0;
   letter-spacing: -0.01em;
   color: var(--fg);
@@ -123,10 +121,9 @@ nav {
 
 .hero-name em {
   font-style: italic;
-  color: var(--muted); /* second line of name appears greyed out */
+  color: var(--muted);
 }
 
-/* Short bio paragraph */
 .hero-bio {
   font-size: 14px;
   color: var(--muted);
@@ -136,7 +133,6 @@ nav {
   animation: fadeUp 0.7s 0.35s forwards;
 }
 
-/* Tag chips row */
 .hero-tags {
   display: flex;
   flex-wrap: wrap;
@@ -163,7 +159,6 @@ section {
   border-bottom: 1px solid var(--border);
 }
 
-/* The small "PROJECTS" / "CONTACT" labels */
 .section-label {
   font-size: 11px;
   letter-spacing: 0.14em;
@@ -197,11 +192,11 @@ section {
   padding: 36px 32px;
   background: var(--bg);
   border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   transition: background 0.2s;
-  cursor: default;
+  cursor: pointer;
 }
 
-/* Hover: card gets a slightly darker background */
 .project-card:hover { background: #efeeea; }
 
 .project-number {
@@ -226,7 +221,6 @@ section {
   margin-bottom: 24px;
 }
 
-/* Tech stack chips inside project card */
 .project-stack {
   display: flex;
   flex-wrap: wrap;
@@ -241,6 +235,111 @@ section {
   background: var(--border);
   color: var(--muted);
   border-radius: 2px;
+}
+
+/* "Read more →" label */
+.card-cta {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.project-card:hover .card-cta { color: var(--fg); }
+
+
+/* ── SHOWCASE ────────────────────────────── */
+#showcase {
+  text-align: left;
+}
+
+.showcase-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.showcase-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--fg);
+  transition: padding-left 0.2s;
+}
+
+.showcase-item:hover { padding-left: 8px; }
+
+/* Left side — photo + text side by side */
+.showcase-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Circular profile photo */
+.showcase-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.showcase-item:hover .showcase-photo {
+  transform: scale(1.06);
+}
+
+/* Text block next to photo */
+.showcase-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.showcase-type {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.showcase-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--fg);
+  line-height: 1.2;
+}
+
+.showcase-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* Arrow on the far right */
+.showcase-arrow {
+  font-size: 20px;
+  color: var(--muted);
+  transition: color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+  margin-left: 24px;
+}
+
+.showcase-item:hover .showcase-arrow {
+  color: var(--fg);
+  transform: translate(3px, -3px);
 }
 
 
@@ -269,7 +368,6 @@ section {
   border-top: 1px solid var(--border);
 }
 
-/* Each contact row (Email / GitHub / LinkedIn) */
 .contact-link {
   display: flex;
   justify-content: space-between;
@@ -278,7 +376,7 @@ section {
   border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: var(--fg);
-  transition: padding-left 0.2s; /* slides right on hover */
+  transition: padding-left 0.2s;
 }
 
 .contact-link:hover { padding-left: 8px; }
@@ -311,30 +409,11 @@ footer span {
 }
 
 
-/* ── CARD CTA ─────────────────────────────── */
-/* "Read more →" label shown at the bottom of each project card */
-.card-cta {
-  display: inline-block;
-  margin-top: 20px;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  transition: color 0.2s;
-  cursor: pointer;
-}
-
-.project-card:hover .card-cta { color: var(--fg); }
-.project-card { cursor: pointer; }
-
-
-/* ── MODAL OVERLAY ───────────────────────────
-   The dark backdrop behind the modal panel.
-   Hidden by default; JS adds .is-open to show it. */
+/* ── MODAL OVERLAY ───────────────────────── */
 .modal-overlay {
-  display: none;                  /* hidden until opened */
+  display: none;
   position: fixed;
-  inset: 0;                       /* covers the full screen */
+  inset: 0;
   z-index: 200;
   background: rgba(26, 26, 24, 0.55);
   backdrop-filter: blur(4px);
@@ -345,14 +424,11 @@ footer span {
   overflow-y: auto;
 }
 
-/* JS adds this class to show the overlay */
 .modal-overlay.is-open {
   display: flex;
   animation: fadeIn 0.2s ease forwards;
 }
 
-/* ── MODAL PANEL ─────────────────────────────
-   The white box that slides up */
 .modal {
   position: relative;
   background: var(--bg);
@@ -361,11 +437,9 @@ footer span {
   padding: 48px;
   border: 1px solid var(--border);
   animation: slideUp 0.25s ease forwards;
-  margin: auto; /* vertically centers short modals */
+  margin: auto;
 }
 
-/* ── CLOSE BUTTON ────────────────────────────
-   The ✕ in the top-right corner */
 .modal-close {
   position: absolute;
   top: 20px;
@@ -382,7 +456,6 @@ footer span {
 
 .modal-close:hover { color: var(--fg); }
 
-/* ── MODAL HEADER ────────────────────────── */
 .modal-header {
   margin-bottom: 0;
 }
@@ -403,7 +476,6 @@ footer span {
   max-width: 520px;
 }
 
-/* Tech stack row inside modal header */
 .modal-header .project-stack {
   display: flex;
   flex-wrap: wrap;
@@ -411,7 +483,6 @@ footer span {
   margin-bottom: 28px;
 }
 
-/* ── GITHUB LINK BUTTON ──────────────────── */
 .github-link {
   display: inline-flex;
   align-items: center;
@@ -435,21 +506,18 @@ footer span {
 
 .github-link:hover svg { stroke: var(--bg); }
 
-/* ── MODAL DIVIDER ───────────────────────── */
 .modal-divider {
   height: 1px;
   background: var(--border);
   margin: 40px 0;
 }
 
-/* ── MODAL BODY (writeup content) ────────── */
 .modal-body {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-/* Section label e.g. "OVERVIEW", "KEY FEATURES" */
 .writeup-heading {
   font-size: 10px;
   letter-spacing: 0.14em;
@@ -458,7 +526,6 @@ footer span {
   margin-bottom: 16px;
 }
 
-/* Body paragraphs */
 .writeup-section p {
   font-size: 14px;
   color: var(--fg);
@@ -469,7 +536,6 @@ footer span {
 
 .writeup-section p:last-child { margin-bottom: 0; }
 
-/* Feature list */
 .writeup-list {
   list-style: none;
   padding: 0;
@@ -491,7 +557,6 @@ footer span {
 
 
 /* ── ANIMATIONS ──────────────────────────── */
-/* Used by the hero section elements on page load */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -509,73 +574,9 @@ footer span {
 
 
 /* ── RESPONSIVE (mobile) ─────────────────── */
-/* Adjusts padding and spacing on smaller screens */
 @media (max-width: 640px) {
   nav { padding: 16px 24px; }
   #home, section { padding-left: 24px; padding-right: 24px; }
   .nav-links { gap: 20px; }
   footer { flex-direction: column; gap: 8px; text-align: center; }
-}
-
-/* ── SHOWCASE ────────────────────────────── */
-.showcase-list {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-}
-
-/* Each row is a clickable external link */
-.showcase-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--border);
-  text-decoration: none;
-  color: var(--fg);
-  transition: padding-left 0.2s;
-}
-
-.showcase-item:hover { padding-left: 8px; }
-
-.showcase-left {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-/* Tag like "Instagram" or "Website" */
-.showcase-type {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.showcase-name {
-  font-family: var(--serif);
-  font-size: 20px;
-  color: var(--fg);
-  line-height: 1.2;
-}
-
-.showcase-desc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-  max-width: 480px;
-}
-
-/* The ↗ arrow on the right */
-.showcase-arrow {
-  font-size: 20px;
-  color: var(--muted);
-  transition: color 0.2s, transform 0.2s;
-  flex-shrink: 0;
-  margin-left: 24px;
-}
-
-.showcase-item:hover .showcase-arrow {
-  color: var(--fg);
-  transform: translate(3px, -3px);
 }
