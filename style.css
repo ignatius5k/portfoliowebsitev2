@@ -574,7 +574,7 @@ footer span {
 
 
 /* ── RESPONSIVE (mobile) ─────────────────── */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   nav {
     padding: 12px 20px;
     flex-direction: column;
